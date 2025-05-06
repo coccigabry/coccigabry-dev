@@ -1,7 +1,7 @@
 // ------------ PAGES -----------------
 
 // HOMEPAGE
-export const homeTitle = "Hi there, it's me Gabriele!"
+export const homeTitle = "Hi there! It's me, Gabriele!"
 export const homeDesc = "Welcome to my personal page, where innovation and creativity converge. If you have time for a glance to my portfolio, you'll find a collection of projects that reflect my passion for details"
 export const homeProjectsBtn = "View my projects"
 export const homeContactBtn = "Contact me"

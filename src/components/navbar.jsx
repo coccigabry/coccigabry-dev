@@ -5,9 +5,31 @@ import Link from "next/link";
 import { useState } from "react";
 import NavLink from "./navLink";
 import { links, social } from "../../public/content";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+
+  const burgerTopLineVariants = {
+    closed: { rotate: 0 },
+    opened: { rotate: 45, backgroundColor: "rgb(255,255,255)" },
+  };
+  const burgerCenterLineVariants = {
+    closed: { opacity: 1 },
+    opened: { opacity: 0 },
+  };
+  const burgerBottomLineVariants = {
+    closed: { rotate: 0 },
+    opened: { rotate: -45, backgroundColor: "rgb(255,255,255)" },
+  };
+  const menuListVariants = {
+    closed: { x: "100vw" },
+    opened: { x: 0, transition: { when:"beforeChildren", staggerChildren: 0.2 } },
+  };
+  const menuListItemVariants = {
+    closed: { x: -10, opacity: 0 },
+    opened: { x: 0, opacity: 1 },
+  };
 
   const handleMenuClick = () => setOpen(!open);
 
@@ -45,24 +67,45 @@ const Navbar = () => {
       </div>
       {/* RESPONSIVE MENU */}
       <div className="md:hidden">
-        {/* MENU BUTTON */}
+        {/* BURGER MENU */}
         <button
           className="w-10 h-8 flex flex-col justify-between z-50 relative"
           onClick={handleMenuClick}
         >
-          <div className="w-10 h-1 bg-black rounded"></div>
-          <div className="w-10 h-1 bg-black rounded"></div>
-          <div className="w-10 h-1 bg-black rounded"></div>
+          <motion.div
+            variants={burgerTopLineVariants}
+            animate={open ? "opened" : "closed"}
+            className="w-10 h-1 bg-black rounded origin-left"
+          ></motion.div>
+          <motion.div
+            variants={burgerCenterLineVariants}
+            animate={open ? "opened" : "closed"}
+            className="w-10 h-1 bg-black rounded"
+          ></motion.div>
+          <motion.div
+            variants={burgerBottomLineVariants}
+            animate={open ? "opened" : "closed"}
+            className="w-10 h-1 bg-black rounded origin-left"
+          ></motion.div>
         </button>
         {/* MENU LIST */}
         {open && (
-          <div className="absolute top-0 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-4xl">
+          <motion.div
+            variants={menuListVariants}
+            initial="closed"
+            animate="opened"
+            className="absolute top-0 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-4xl z-40"
+          >
             {links.map((link) => (
-              <Link key={link.title} href={link.url}>
-                {link.title}
-              </Link>
+              <motion.div
+                key={link.title}
+                variants={menuListItemVariants}
+                className=""
+              >
+                <Link href={link.url}>{link.title}</Link>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         )}
       </div>
     </div>
