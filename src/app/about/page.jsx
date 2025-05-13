@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import {
   aboutDes,
   aboutMotto,
@@ -11,8 +11,15 @@ import {
 } from "../../../public/content";
 import Timeline from "@/components/timeline";
 import Image from "next/image";
+import { useRef } from "react";
 
 const AboutPage = () => {
+  const skillsRef = useRef();
+  const skillsOnView = useInView(skillsRef, { margin: "-100px" });
+
+  const experienceRef = useRef();
+  const experienceOnView = useInView(experienceRef, { margin: "-100px" });
+
   return (
     <motion.div
       className="h-full"
@@ -29,14 +36,17 @@ const AboutPage = () => {
             <p className="text-lg">{aboutDes}</p>
             <p className="italic">{aboutMotto}</p>
             {/* SCROLL DOWN SVG */}
-            <svg
+            <motion.svg
+              initial={{ opacity: 0.2, y: 0 }}
+              animate={{ opacity: 1, y: "20px" }}
+              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
               width="50px"
               height="50px"
               viewBox="0 0 24.00 24.00"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
               <g
                 id="SVGRepo_tracerCarrier"
                 stroke-linecap="round"
@@ -47,51 +57,71 @@ const AboutPage = () => {
                 <path
                   d="M5 15C5 16.8565 5.73754 18.6371 7.05029 19.9498C8.36305 21.2626 10.1435 21.9999 12 21.9999C13.8565 21.9999 15.637 21.2626 16.9498 19.9498C18.2625 18.6371 19 16.8565 19 15V9C19 7.14348 18.2625 5.36305 16.9498 4.05029C15.637 2.73754 13.8565 2 12 2C10.1435 2 8.36305 2.73754 7.05029 4.05029C5.73754 5.36305 5 7.14348 5 9V15Z"
                   stroke="#000000"
-                  stroke-width="0.504"
+                  strokeWidth="0.504"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 ></path>{" "}
                 <path
                   d="M12 6V14"
                   stroke="#000000"
-                  stroke-width="0.504"
+                  strokeWidth="0.504"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 ></path>{" "}
                 <path
                   d="M15 11L12 14L9 11"
                   stroke="#000000"
-                  stroke-width="0.504"
+                  strokeWidth="0.504"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 ></path>{" "}
               </g>
-            </svg>{" "}
+            </motion.svg>{" "}
           </div>
           {/* SKILLS */}
-          <div className="flex flex-col gap-12 justify-center">
-            <h1 className="font-bold text-2xl uppercase">{skillsTitle}</h1>
+          <div className="flex flex-col gap-12 justify-center" ref={skillsRef}>
+            <motion.h1
+              initial={{ x: "-300px" }}
+              animate={skillsOnView ? { x: 0 } : {}}
+              transition={{ delay: 0.2 }}
+              className="font-bold text-2xl uppercase"
+            >
+              {skillsTitle}
+            </motion.h1>
             {/* SKILLS LIST */}
             <div className="flex flex-wrap gap-4">
               {skillsList &&
-                skillsList.map((skill) => (
-                  <div
-                    key={skill}
-                    className="rounded p-2 text-sm cursor-pointer bg-blue-800 text-white hover:bg-white hover:text-blue-800"
-                  >
-                    {skill}
-                  </div>
-                ))}
+                skillsList.map((skill) => {
+                  const randomDelay = Math.random() * 0.5;
+                  return (
+                    <motion.div
+                      key={skill}
+                      initial={{ scale: 0, opacity: 0 }}
+                      animate={skillsOnView ? { scale: 1, opacity: 1 } : {}}
+                      transition={{
+                        duration: 0.4,
+                        delay: randomDelay,
+                        ease: "easeOut",
+                      }}
+                      className="rounded p-2 text-sm cursor-pointer bg-blue-800 text-white hover:bg-white hover:text-blue-800"
+                    >
+                      {skill}
+                    </motion.div>
+                  );
+                })}
             </div>
             {/* SCROLL DOWN SVG */}
-            <svg
+            <motion.svg
+              initial={{ opacity: 0.2, y: 0 }}
+              animate={{ opacity: 1, y: "20px" }}
+              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
               width="50px"
               height="50px"
               viewBox="0 0 24.00 24.00"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
               <g
                 id="SVGRepo_tracerCarrier"
                 stroke-linecap="round"
@@ -102,30 +132,41 @@ const AboutPage = () => {
                 <path
                   d="M5 15C5 16.8565 5.73754 18.6371 7.05029 19.9498C8.36305 21.2626 10.1435 21.9999 12 21.9999C13.8565 21.9999 15.637 21.2626 16.9498 19.9498C18.2625 18.6371 19 16.8565 19 15V9C19 7.14348 18.2625 5.36305 16.9498 4.05029C15.637 2.73754 13.8565 2 12 2C10.1435 2 8.36305 2.73754 7.05029 4.05029C5.73754 5.36305 5 7.14348 5 9V15Z"
                   stroke="#000000"
-                  stroke-width="0.504"
+                  strokeWidth="0.504"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 ></path>{" "}
                 <path
                   d="M12 6V14"
                   stroke="#000000"
-                  stroke-width="0.504"
+                  strokeWidth="0.504"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 ></path>{" "}
                 <path
                   d="M15 11L12 14L9 11"
                   stroke="#000000"
-                  stroke-width="0.504"
+                  strokeWidth="0.504"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 ></path>{" "}
               </g>
-            </svg>{" "}
+            </motion.svg>{" "}
           </div>
           {/* EXPERIENCE */}
-          <div className="flex flex-col gap-12 justify-center pb-48">
-            <h1 className="font-bold text-2xl uppercase">{expTitle}</h1>
+          <div
+            className="flex flex-col gap-12 justify-center pb-48"
+            ref={experienceRef}
+          >
+            <motion.h1
+              initial={{ x: "-300px" }}
+              animate={experienceOnView ? { x: 0 } : {}}
+              transition={{ delay: 0.2 }}
+              className="font-bold text-2xl uppercase"
+            >
+              {expTitle}
+            </motion.h1>
+            {/* TIMELINE */}
             <Timeline />
           </div>
         </div>
@@ -136,7 +177,7 @@ const AboutPage = () => {
               src="/brain.png"
               alt="guy picture"
               fill
-              className="object-contain"
+              className="object-contain xl:p-20"
             />
           </div>
         </div>
