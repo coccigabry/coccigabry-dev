@@ -1,13 +1,36 @@
 "use client"
 
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 const ContactPage = () => {
 
   const [success, setSuccess] = useState<boolean>(false)
   const [error, setError] = useState<boolean>(false)
+
+  const formRef = useRef(null)
+
+  const sendEmail = (e) => {
+    e.preventDefault()
+    setError(false)
+    setError(false)
+
+    emailjs.sendForm(process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID, process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID, formRef.current, {
+      publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+    })
+      .then(
+        result => {
+          setError(true)
+          formRef.current.reset()
+        },
+        error => {
+          setError(true)
+          console.log(error)
+        }
+      )
+  }
 
   return (
     <motion.div
@@ -29,16 +52,16 @@ const ContactPage = () => {
           </div>
         </div>
         {/* FORM CONTAINER */}
-        <div className="h-1/2 lg:h-full lg:w-1/2 bg-red-100 rounded-xl text-xl flex flex-col gap-8 justify-center p-24">
+        <form ref={formRef} onSubmit={sendEmail} className="h-1/2 lg:h-full lg:w-1/2 bg-red-100 rounded-xl text-xl flex flex-col gap-8 justify-center p-24">
           <span>Dear Cocci</span>
-          <textarea rows={6} className="bg-transparent border-b-2 border-b-black outline-none resize-none"/>
+          <textarea name="message" rows={6} className="bg-transparent border-b-2 border-b-black outline-none resize-none" />
           <span>My email is</span>
-          <input type="text" className="bg-transparent border-b-2 border-b-black outline-none" />
+          <input name="email" type="text" className="bg-transparent border-b-2 border-b-black outline-none" />
           <span>Cheers</span>
           <button className="bg-purple-200 rounded font-semibold text-grey-600 p-4">Send</button>
           {success && <span className="text-green-600">Sent</span>}
           {error && <span className="text-red-600">Not sent</span>}
-        </div>
+        </form>
       </div>
     </motion.div>
   );
