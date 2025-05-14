@@ -3,17 +3,21 @@
 import { motion, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { projects } from "../../public/content";
+import { useLabels } from "../hooks/useLabels";
 
 const Carousel = ({ scrollYProgress }) => {
+
+  const labels = useLabels()
+  const carouselContent = labels?.labels?.components?.carousel && {...labels.labels.components.carousel}
+
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
 
   return (
     <div className="sticky top-0 flex h-screen gap-4 items-center overflow-hidden">
       <motion.div style={{ x }} className="flex">
         <div className="h-screen w-screen flex items-center justify-center bg-gradient-to-r from-blue-300 to-purple-300" />
-        {projects &&
-          projects.map((project) => {
+        {carouselContent?.projects &&
+          carouselContent.projects.map((project) => {
             return (
               <div
                 className={`h-screen w-screen flex items-center justify-center bg-gradient-to-r ${project.bg}`}

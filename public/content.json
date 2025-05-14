@@ -1,0 +1,405 @@
+{
+    "labels": {
+        "lang": {
+            "it": {
+                "pages": {
+                    "homepage": {
+                        "title": "Ciao a tutti! Sono Gabriele!",
+                        "desc": "Benvenuto nella mia pagina personale, dove innovazione e creatività si incontrano. Se hai tempo per dare un'occhiata al mio portfolio, troverai una raccolta di progetti che riflettono la mia passione per i dettagli.",
+                        "projectsBtn": "Guarda i miei progetti",
+                        "contactBtn": "Contattami"
+                    },
+                    "about": {
+                        "aboutTitle": "Su di me",
+                        "aboutDesc": "Sono uno sviluppatore Full-Stack molto curioso, con la passione di fare domande e scoprire cose nuove. Mi spingo sempre oltre i miei limiti, cercando di crescere un po' di più ogni giorno — sia come persona che come professionista. Amo trovare la bellezza nelle cose e cerco di portare un po' di quella bellezza in tutto ciò che faccio.",
+                        "aboutMotto": "Sweep the shed!",
+                        "skillsTitle": "Skills",
+                        "skillsList": [
+                            "Javascript",
+                            "Typescript",
+                            "React",
+                            "NextJs",
+                            "SCSS",
+                            "Bootstrap",
+                            "Tailwind CSS",
+                            "MySQL",
+                            "PostgreSQL",
+                            "MongoDB",
+                            "NodeJs",
+                            "Express",
+                            "Webpack",
+                            "Vite",
+                            "Apache",
+                            "Docker",
+                            "Jenkins"
+                        ],
+                        "expTitle": "Esperienze lavorative"
+                    },
+                    "portfolio": {
+                        "title": "Progetti più recenti",
+                        "getTouchText": "Mettiamoci in contatto!",
+                        "getTouchBtn": "Clicca qui",
+                        "rotatingText": "Inviami una email"
+                    },
+                    "contact": {
+                        "title": "",
+                        "desc": ""
+                    }
+                },
+                "components": {
+                    "navbar": {
+                        "links": [
+                            {
+                                "url": "/pages/home",
+                                "title": "Home"
+                            },
+                            {
+                                "url": "/pages/about",
+                                "title": "About"
+                            },
+                            {
+                                "url": "/pages/portfolio",
+                                "title": "Portfolio"
+                            },
+                            {
+                                "url": "/pages/contact",
+                                "title": "Contatti"
+                            }
+                        ],
+                        "social": [
+                            {
+                                "url": "https://github.com/coccigabry",
+                                "src": "/github.png",
+                                "name": "Github"
+                            },
+                            {
+                                "url": "https://it.linkedin.com/in/gabriele-cocilovo",
+                                "src": "/linkedin.png",
+                                "name": "LinkedIn"
+                            }
+                        ]
+                    },
+                    "timeline": {
+                        "jobs": [
+                            {
+                                "role": "Front-End Developer",
+                                "date": "Maggio 2025 - Oggi",
+                                "company": "IT Value Partner"
+                            },
+                            {
+                                "role": "Front-End Developer",
+                                "date": "Giugno 2023 - Maggio 2025",
+                                "company": "Reply Aktive"
+                            },
+                            {
+                                "role": "Front-End Developer",
+                                "date": "Gennaio 2023 - Giugno 2023",
+                                "company": "IT Value Partner"
+                            },
+                            {
+                                "role": "Full-Stack Developer",
+                                "date": "Ottobre 2021 - Gennaio 2023",
+                                "company": "Freelancer"
+                            }
+                        ]
+                    },
+                    "carousel": {
+                        "projects": [
+                            {
+                                "title": "Cocci GPT",
+                                "desc": "Una webApp Full-Stack basata su modello AI, sviluppata con React.js, Node.js e MongoDB. AI alimentata da Google Gemini.",
+                                "img": "https://images.unsplash.com/photo-1674027444485-cec3da58eef4?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                                "alt": "Photo by Growtika on Unsplash",
+                                "link": "https://github.com/coccigabry/cocciGPT",
+                                "bg": "from-purple-300 to-violet-500"
+                            },
+                            {
+                                "title": "Real-Time Chat",
+                                "desc": "Una chat in tempo reale, sviluppata con React.js, Socket.io, Node.js and MongoDB.",
+                                "img": "https://images.unsplash.com/photo-1555819207-d089c9205ba5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                                "alt": "Photo by Priscilla Du Preez on Unsplash",
+                                "link": "https://github.com/coccigabry/realtimeChat",
+                                "bg": "from-violet-500 to-pink-300"
+                            },
+                            {
+                                "title": "Food Ordering",
+                                "desc": "Una webApp Full-Stack, sviluppata con Next.js e MongoDB. Pagamento effettuato tramite PayPal.",
+                                "img": "https://images.unsplash.com/photo-1681262392875-eab4e1f2e79e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZCUyMG9yZGVyaW5nfGVufDB8MHwwfHx8Mg%3D%3D",
+                                "alt": "Photo by Joylynn Goh on Unsplash",
+                                "link": "https://github.com/coccigabry/foodOrderingApp",
+                                "bg": "from-pink-300 to-red-500"
+                            }
+                        ]
+                    },
+                    "form": {}
+                }
+            },
+            "es": {
+                "pages": {
+                    "homepage": {
+                        "title": "¡Hola a todos! Soy Gabriele",
+                        "desc": "Bienvenido a mi página personal, donde la innovación y la creatividad convergen. Si tienes tiempo para echar un vistazo a mi portafolio, encontrarás una colección de proyectos que reflejan mi pasión por los detalles.",
+                        "projectsBtn": "Mira mis proyectos",
+                        "contactBtn": "Contáctame"
+                    },
+                    "about": {
+                        "aboutTitle": "Sobre mí",
+                        "aboutDesc": "Soy un desarrollador Full-Stack muy curioso, con la pasión de hacer preguntas y descubrir cosas nuevas. Siempre me esfuerzo por superar mis límites, tratando de crecer un poco más cada día, tanto como persona como profesional. Me encanta encontrar la belleza en las cosas y trato de llevar un poco de esa belleza en todo lo que hago.",
+                        "aboutMotto": "Sweep the shed!",
+                        "skillsTitle": "Skills",
+                        "skillsList": [
+                            "Javascript",
+                            "Typescript",
+                            "React",
+                            "NextJs",
+                            "SCSS",
+                            "Bootstrap",
+                            "Tailwind CSS",
+                            "MySQL",
+                            "PostgreSQL",
+                            "MongoDB",
+                            "NodeJs",
+                            "Express",
+                            "Webpack",
+                            "Vite",
+                            "Apache",
+                            "Docker",
+                            "Jenkins"
+                        ],
+                        "expTitle": "Experiencia laboral"
+                    },
+                    "portfolio": {
+                        "title": "Proyectos más recientes",
+                        "getTouchText": "¡Pongámonos en contacto!",
+                        "getTouchBtn": "Haz clic aquí",
+                        "rotatingText": "Envíame un correo electrónico"
+                    },
+                    "contact": {
+                        "title": "",
+                        "desc": ""
+                    }
+                },
+                "components": {
+                    "navbar": {
+                        "links": [
+                            {
+                                "url": "/pages/home",
+                                "title": "Home"
+                            },
+                            {
+                                "url": "/pages/about",
+                                "title": "About"
+                            },
+                            {
+                                "url": "/pages/portfolio",
+                                "title": "Portfolio"
+                            },
+                            {
+                                "url": "/pages/contact",
+                                "title": "Contactos"
+                            }
+                        ],
+                        "social": [
+                            {
+                                "url": "https://github.com/coccigabry",
+                                "src": "/github.png",
+                                "name": "Github"
+                            },
+                            {
+                                "url": "https://it.linkedin.com/in/gabriele-cocilovo",
+                                "src": "/linkedin.png",
+                                "name": "LinkedIn"
+                            }
+                        ]
+                    },
+                    "timeline": {
+                        "jobs": [
+                            {
+                                "role": "Front-End Developer",
+                                "date": "Mayo 2025 - Hoy",
+                                "company": "IT Value Partner"
+                            },
+                            {
+                                "role": "Front-End Developer",
+                                "date": "Junio 2023 - Mayo 2025",
+                                "company": "Reply Aktive"
+                            },
+                            {
+                                "role": "Front-End Developer",
+                                "date": "Enero 2023 - Junio 2023",
+                                "company": "IT Value Partner"
+                            },
+                            {
+                                "role": "Full-Stack Developer",
+                                "date": "Octubre 2021 - Enero 2023",
+                                "company": "Freelancer"
+                            }
+                        ]
+                    },
+                    "carousel": {
+                        "projects": [
+                            {
+                                "title": "Cocci GPT",
+                                "desc": "Una webApp Full-Stack basada en modelo AI, desarrollada con React.js, Node.js y MongoDB. AI alimentada por Google Gemini.",
+                                "img": "https://images.unsplash.com/photo-1674027444485-cec3da58eef4?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                                "alt": "Photo by Growtika on Unsplash",
+                                "link": "https://github.com/coccigabry/cocciGPT",
+                                "bg": "from-purple-300 to-violet-500"
+                            },
+                            {
+                                "title": "Real-Time Chat",
+                                "desc": "Un chat en tiempo real, desarrollada con React.js, Socket.io, Node.js y MongoDB.",
+                                "img": "https://images.unsplash.com/photo-1555819207-d089c9205ba5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                                "alt": "Photo by Priscilla Du Preez on Unsplash",
+                                "link": "https://github.com/coccigabry/realtimeChat",
+                                "bg": "from-violet-500 to-pink-300"
+                            },
+                            {
+                                "title": "Food Ordering",
+                                "desc": "Una webApp Full-Stack, desarrollada con Next.js and MongoDB. Pago realizado a través de PayPal.",
+                                "img": "https://images.unsplash.com/photo-1681262392875-eab4e1f2e79e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZCUyMG9yZGVyaW5nfGVufDB8MHwwfHx8Mg%3D%3D",
+                                "alt": "Photo by Joylynn Goh on Unsplash",
+                                "link": "https://github.com/coccigabry/foodOrderingApp",
+                                "bg": "from-pink-300 to-red-500"
+                            }
+                        ]
+                    },
+                    "form": {}
+                }
+            },
+            "en": {
+                "pages": {
+                    "homepage": {
+                        "title": "Hi there! It's me, Gabriele!",
+                        "desc": "Welcome to my personal page, where innovation and creativity converge. If you have time for a glance to my portfolio, you'll find a collection of projects that reflect my passion for details",
+                        "projectsBtn": "View my projects",
+                        "contactBtn": "Contact me"
+                    },
+                    "about": {
+                        "aboutTitle": "About me",
+                        "aboutDesc": "I’m a curious Full-Stack Developer with a passion for asking questions and discovering new things. I’m always pushing my limits, aiming to grow a little more each day — both as a person and as a professional. I love to find the beauty in things, and I try to bring a touch of that beauty into everything I create.",
+                        "aboutMotto": "Sweep the shed!",
+                        "skillsTitle": "Skills",
+                        "skillsList": [
+                            "Javascript",
+                            "Typescript",
+                            "React",
+                            "NextJs",
+                            "SCSS",
+                            "Bootstrap",
+                            "Tailwind CSS",
+                            "MySQL",
+                            "PostgreSQL",
+                            "MongoDB",
+                            "NodeJs",
+                            "Express",
+                            "Webpack",
+                            "Vite",
+                            "Apache",
+                            "Docker",
+                            "Jenkins"
+                        ],
+                        "expTitle": "Working Experience"
+                    },
+                    "portfolio": {
+                        "title": "Latest Projects",
+                        "getTouchText": "Let's get in touch!",
+                        "getTouchBtn": "Click here",
+                        "rotatingText": "Send me an email"
+                    },
+                    "contact": {
+                        "title": "",
+                        "desc": ""
+                    }
+                },
+                "components": {
+                    "navbar": {
+                        "links": [
+                            {
+                                "url": "/pages/home",
+                                "title": "Home"
+                            },
+                            {
+                                "url": "/pages/about",
+                                "title": "About"
+                            },
+                            {
+                                "url": "/pages/portfolio",
+                                "title": "Portfolio"
+                            },
+                            {
+                                "url": "/pages/contact",
+                                "title": "Contact"
+                            }
+                        ],
+                        "social": [
+                            {
+                                "url": "https://github.com/coccigabry",
+                                "src": "/github.png",
+                                "name": "Github"
+                            },
+                            {
+                                "url": "https://it.linkedin.com/in/gabriele-cocilovo",
+                                "src": "/linkedin.png",
+                                "name": "LinkedIn"
+                            }
+                        ]
+                    },
+                    "timeline": {
+                        "jobs": [
+                            {
+                                "role": "Front-End Developer",
+                                "date": "May 2025 - Today",
+                                "company": "IT Value Partner"
+                            },
+                            {
+                                "role": "Front-End Developer",
+                                "date": "June 2023 - May 2025",
+                                "company": "Reply Aktive"
+                            },
+                            {
+                                "role": "Front-End Developer",
+                                "date": "January 2023 - June 2023",
+                                "company": "IT Value Partner"
+                            },
+                            {
+                                "role": "Full-Stack Developer",
+                                "date": "October 2021 - January 2023",
+                                "company": "Freelancer"
+                            }
+                        ]
+                    },
+                    "carousel": {
+                        "projects": [
+                            {
+                                "title": "Cocci GPT",
+                                "desc": "A Full-Stack JavaScript model-AI webApp built with React.js, Node.js and MongoDB. Ai powered by Google Gemini.",
+                                "img": "https://images.unsplash.com/photo-1674027444485-cec3da58eef4?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                                "alt": "Photo by Growtika on Unsplash",
+                                "link": "https://github.com/coccigabry/cocciGPT",
+                                "bg": "from-purple-300 to-violet-500"
+                            },
+                            {
+                                "title": "Real-Time Chat",
+                                "desc": "A Full-Stack JavaScript realtime chat built with React.js, Socket.io, Node.js and MongoDB.",
+                                "img": "https://images.unsplash.com/photo-1555819207-d089c9205ba5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                                "alt": "Photo by Priscilla Du Preez on Unsplash",
+                                "link": "https://github.com/coccigabry/realtimeChat",
+                                "bg": "from-violet-500 to-pink-300"
+                            },
+                            {
+                                "title": "Food Ordering",
+                                "desc": "A Full-Stack JavaScript webApp built with Next.js and MongoDB. Payment made via PayPal.",
+                                "img": "https://images.unsplash.com/photo-1681262392875-eab4e1f2e79e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZCUyMG9yZGVyaW5nfGVufDB8MHwwfHx8Mg%3D%3D",
+                                "alt": "Photo by Joylynn Goh on Unsplash",
+                                "link": "https://github.com/coccigabry/foodOrderingApp",
+                                "bg": "from-pink-300 to-red-500"
+                            }
+                        ]
+                    },
+                    "form": {}
+                }
+            }
+        }
+    }
+}

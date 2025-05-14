@@ -1,15 +1,21 @@
 "use client";
 
 import Image from "next/image";
-import {
-  homeContactBtn,
-  homeDesc,
-  homeProjectsBtn,
-  homeTitle,
-} from "../../public/content";
 import { motion } from "framer-motion";
+import React from "react";
+import Link from "next/link";
+import { useLabels } from "./hooks/useLabels";
 
-const Homepage = () => {
+const LanguageSelector = () => {
+  const { setLang } = useLabels();
+
+  const setLanguage = (event) => {
+    const lang = event.currentTarget.dataset.lang;
+    if (lang) {
+      setLang(lang);
+    }
+  };
+
   return (
     <motion.div
       className="h-full"
@@ -17,31 +23,55 @@ const Homepage = () => {
       animate={{ y: 0 }}
       transition={{ duration: 1 }}
     >
-      <div className="h-full flex flex-col px-4 lg:flex-row sm:px-8 md:px-12 lg:px-20 xl:px-48">
-        {/* IMAGE CONTAINER */}
-        <div className="h-1/2 lg:h-full lg:w-1/2 relative">
-          <Image
-            src="/hero.png"
-            alt="guy picture"
-            fill
-            className="object-contain"
-          />
-        </div>
+      <div className="h-full flex flex-col px-4 lg:flex-row sm:p-8 md:p-12 lg:p-20 xl:p-30">
         {/* TEXT CONTAINER */}
-        <div className="h-1/2 lg:h-full lg:w-1/2 flex flex-col gap-8 items-center justify-center">
+        <div className="h-1/3 sm:h-1/2 lg:h-full lg:w-1/2 flex flex-col gap-8 items-center justify-center">
           {/* TITLE */}
-          <h1 className="text-4xl md:text-6xl font-bold">{homeTitle}</h1>
-          {/* DESCRIPTION */}
-          <p className="md:text-xl">{homeDesc}</p>
-          {/* BUTTONS */}
-          <div className="flex gap-4">
-            <button className="p-4 rounded-lg ring-1 ring-black bg-blue-800 text-white">
-              {homeProjectsBtn}
-            </button>
-            <button className="p-4 rounded-lg ring-1 ring-black">
-              {homeContactBtn}
-            </button>
-            <button></button>
+          <h1 className="text-4xl md:text-6xl font-bold ">SELECT LANGUAGE</h1>
+        </div>
+        {/* IMAGE CONTAINER */}
+        <div className="h-1/2 flex gap-4 flex-col items-center sm:flex-row sm:justify-center sm:gap-10 lg:h-full lg:w-1/2 lg:flex-col lg:items-center xl:gap-10 ">
+          <div className="w-[150px] lg:w-[200px] xl:w-[220px] h-1/3 relative">
+            <Link
+              href="/pages/home"
+              data-lang="en"
+              onClick={(e) => setLanguage(e)}
+            >
+              <Image
+                src="/uk_flag.jpg"
+                alt="Image by Pete Linforth from Pixabay"
+                className="object-contain"
+                fill
+              />
+            </Link>
+          </div>
+          <div className="w-[150px] lg:w-[200px] xl:w-[300px] h-1/3 relative">
+            <Link
+              href="/pages/home"
+              data-lang="it"
+              onClick={(e) => setLanguage(e)}
+            >
+              <Image
+                src="/it_flag.png"
+                alt="Image by OpenClipart-Vectors from Pixabay"
+                className="object-contain"
+                fill
+              />
+            </Link>
+          </div>
+          <div className="w-[150px] lg:w-[200px] xl:w-[300px] h-1/3 relative">
+            <Link
+              href="/pages/home"
+              data-lang="es"
+              onClick={(e) => setLanguage(e)}
+            >
+              <Image
+                src="/es_flag.png"
+                alt="Image by Clker-Free-Vector-Images from Pixabay"
+                className="object-contain"
+                fill
+              />
+            </Link>
           </div>
         </div>
       </div>
@@ -49,4 +79,4 @@ const Homepage = () => {
   );
 };
 
-export default Homepage;
+export default LanguageSelector;

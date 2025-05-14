@@ -1,24 +1,22 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import {
-  aboutDes,
-  aboutMotto,
-  aboutTitle,
-  expTitle,
-  skillsList,
-  skillsTitle,
-} from "../../../public/content";
-import Timeline from "@/components/timeline";
+import Timeline from "../../components/timeline";
 import Image from "next/image";
 import { useRef } from "react";
+import React from "react";
+import { useLabels } from "../../hooks/useLabels";
 
 const AboutPage = () => {
-  const skillsRef = useRef();
-  const skillsOnView = useInView(skillsRef, { margin: "-100px" });
 
-  const experienceRef = useRef();
-  const experienceOnView = useInView(experienceRef, { margin: "-100px" });
+  const labels = useLabels()
+  const aboutContent = labels?.labels?.pages?.about && { ...labels.labels.pages.about }
+
+  const skillsRef = useRef(null);
+  const skillsOnView = useInView(skillsRef, { margin: "-100px", once: true });
+
+  const experienceRef = useRef(null);
+  const experienceOnView = useInView(experienceRef, { margin: "-100px", once: true   });
 
   return (
     <motion.div
@@ -32,9 +30,9 @@ const AboutPage = () => {
         <div className="p-4 sm:p-8 md:p-12 lg:p-20 xl:p-48 flex flex-col gap-24 md:gap-32 lg:gap-48 xl:gap-64 lg:w-2/3 lg:pr-0 xl:w-1/2">
           {/* BIOGRAPHY */}
           <div className="flex flex-col gap-12 justify-center">
-            <h1 className="font-bold text-2xl uppercase">{aboutTitle}</h1>
-            <p className="text-lg">{aboutDes}</p>
-            <p className="italic">{aboutMotto}</p>
+            <h1 className="font-bold text-2xl uppercase">{aboutContent?.aboutTitle ?? ""}</h1>
+            <p className="text-lg">{aboutContent?.aboutDesc ?? ""}</p>
+            <p className="italic">{aboutContent?.aboutMotto ?? ""}</p>
             {/* SCROLL DOWN SVG */}
             <motion.svg
               initial={{ opacity: 0.2, y: 0 }}
@@ -86,12 +84,12 @@ const AboutPage = () => {
               transition={{ delay: 0.2 }}
               className="font-bold text-2xl uppercase"
             >
-              {skillsTitle}
+              {aboutContent?.skillsTitle ?? ""}
             </motion.h1>
             {/* SKILLS LIST */}
             <div className="flex flex-wrap gap-4">
-              {skillsList &&
-                skillsList.map((skill) => {
+              {aboutContent?.skillsList &&
+                aboutContent.skillsList.map((skill) => {
                   const randomDelay = Math.random() * 0.5;
                   return (
                     <motion.div
@@ -164,7 +162,7 @@ const AboutPage = () => {
               transition={{ delay: 0.2 }}
               className="font-bold text-2xl uppercase"
             >
-              {expTitle}
+              {aboutContent?.expTitle ?? ""}
             </motion.h1>
             {/* TIMELINE */}
             <Timeline />

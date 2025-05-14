@@ -1,17 +1,22 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { jobs } from "../../public/content";
 import { useRef } from "react";
+import { useLabels } from "../hooks/useLabels";
 
 const Timeline = () => {
-  const jobRef = useRef();
-  const jobOnView = useInView(jobRef);
+
+  const labels = useLabels()
+  const timelineContent = labels?.labels?.components?.timeline && { ...labels.labels.components.timeline }
+
+  const jobRef = useRef(null);
+  const jobOnView = useInView(jobRef, {once: true});
 
   return (
     <div className="">
-      {jobs &&
-        jobs.map((job, idx) => {
+      {timelineContent?.jobs &&
+        timelineContent.jobs.map((job, idx) => {
+          const lastExperience = timelineContent.jobs[timelineContent.jobs.length - 1];
           const increasingDelay = idx * 0.2;
           return (
             <div key={idx} className="flex justify-between h-48" ref={jobRef}>
@@ -22,7 +27,7 @@ const Timeline = () => {
                     initial={{ scale: 0, opacity: 0 }}
                     animate={jobOnView ? { scale: 1, opacity: 1 } : {}}
                     transition={{
-                      duration: 0.4,
+                      duration: 0.3,
                       delay: increasingDelay,
                       ease: "easeOut",
                     }}
@@ -43,7 +48,7 @@ const Timeline = () => {
               {/* CENTER */}
               <div className="w-1/6 flex justify-center">
                 {/* LINE */}
-                <div className="w-1 h-full bg-gray-700 rounded relative">
+                <div className={job !== lastExperience ? "w-1 h-full bg-gray-700 rounded relative" : "relative"}>
                   {/* POINTER */}
                   <div className="absolute w-5 h-5 rounded-full ring-4 ring-yellow-500 bg-white -left-2"></div>
                 </div>

@@ -5,7 +5,9 @@ import Navbar from "./navbar";
 import { usePathname } from "next/navigation";
 
 export const TransitionProvider = ({ children }) => {
-  const pathName = usePathname().substring(1);
+
+  const pathName = usePathname().split("/").pop();
+  
   return (
     <AnimatePresence mode="wait">
       <div

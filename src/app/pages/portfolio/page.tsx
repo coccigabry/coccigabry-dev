@@ -2,17 +2,18 @@
 
 import { motion, useScroll } from "framer-motion";
 import { useRef } from "react";
-import {
-  portfolioGetTouch,
-  portfolioGetTouchBtn,
-  portfolioGetTouchRotatingText,
-  portfolioTitle,
-} from "../../../public/content";
 import Link from "next/link";
-import Carousel from "@/components/carousel";
+import Carousel from "../../components/carousel";
+import React from "react";
+import { useLabels } from "../../hooks/useLabels";
 
 const PortfolioPage = () => {
-  const ref = useRef();
+
+  const labels = useLabels()
+  const portfolioContent = labels?.labels?.pages?.portfolio && { ...labels.labels.pages.portfolio }
+
+
+  const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref });
 
   return (
@@ -25,14 +26,14 @@ const PortfolioPage = () => {
       <div className="h-[600vh] relative" ref={ref}>
         {/* TITLE */}
         <div className="w-screen h-[calc(100vh-6rem)] flex items-center justify-center text-8xl text-center">
-          {portfolioTitle}
+          {portfolioContent?.title ?? ""}
         </div>
         {/* CAROUSEL */}
         <Carousel scrollYProgress={scrollYProgress} />
       </div>
       {/* CONTACT ME */}
       <div className="w-screen h-screen flex flex-col gap-16 items-center justify-center text-center">
-        <h1 className="text-8xl">{portfolioGetTouch}</h1>
+        <h1 className="text-8xl">{portfolioContent?.getTouchText ?? ""}</h1>
         <div className="relative">
           <motion.svg
             animate={{ rotate: 360 }}
@@ -48,7 +49,7 @@ const PortfolioPage = () => {
             </defs>
             <text fill="#000">
               <textPath xlinkHref="#circlePath" className="text-4xl">
-                {portfolioGetTouchRotatingText}
+                {portfolioContent?.rotatingText ?? ""}
               </textPath>
             </text>
           </motion.svg>
@@ -56,7 +57,7 @@ const PortfolioPage = () => {
             href="/contact"
             className="w-16 h-16 md:w-28 md:h-28 absolute top-0 left-0 right-0 bottom-0 m-auto bg-black text-white rounded-full flex items-center justify-center"
           >
-            {portfolioGetTouchBtn}
+            {portfolioContent?.getTouchBtn ?? ""}
           </Link>
         </div>
       </div>

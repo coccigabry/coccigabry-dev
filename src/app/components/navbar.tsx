@@ -4,10 +4,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import NavLink from "./navLink";
-import { links, social } from "../../public/content";
 import { motion } from "framer-motion";
+import { useLabels } from "../hooks/useLabels";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
+
+  const pathName = usePathname()
+
+  const labels = useLabels()
+  const navbarContent = labels?.labels?.components?.navbar && { ...labels.labels.components.navbar }
+
   const [open, setOpen] = useState(false);
 
   const burgerTopLineVariants = {
@@ -24,7 +31,7 @@ const Navbar = () => {
   };
   const menuListVariants = {
     closed: { x: "100vw" },
-    opened: { x: 0, transition: { when:"beforeChildren", staggerChildren: 0.2 } },
+    opened: { x: 0, transition: { when: "beforeChildren", staggerChildren: 0.2 } },
   };
   const menuListItemVariants = {
     closed: { x: -10, opacity: 0 },
@@ -33,11 +40,11 @@ const Navbar = () => {
 
   const handleMenuClick = () => setOpen(!open);
 
-  return (
+  if (pathName !== "/") return (
     <div className="h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
       {/* LINKS */}
       <div className="hidden md:flex gap-4 w-1/3">
-        {links.map((link) => (
+        {navbarContent?.links && navbarContent.links.map((link) => (
           <NavLink key={link.title} link={link} />
         ))}
       </div>
@@ -55,10 +62,11 @@ const Navbar = () => {
       </div>
       {/* SOCIAL */}
       <div className="hidden md:flex gap-4 justify-center w-1/3">
-        {social.map((item) => (
+        {navbarContent?.social && navbarContent.social.map((item) => (
           <Link
             key={item.name}
             href={item.url}
+            target="_blank"
             className="bg-white rounded-2xl"
           >
             <Image src={item.src} alt={item.name} width={30} height={30} />
@@ -96,7 +104,7 @@ const Navbar = () => {
             animate="opened"
             className="absolute top-0 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-4xl z-40"
           >
-            {links.map((link) => (
+            {navbarContent?.links && navbarContent.links.map((link) => (
               <motion.div
                 key={link.title}
                 variants={menuListItemVariants}
