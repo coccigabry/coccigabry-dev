@@ -11,11 +11,23 @@ interface LabelsContextType {
 export const LabelsContext = createContext<LabelsContextType | undefined>(undefined)
 
 export const LabelsProvider = ({ children }) => {
-    const [lang, setLang] = useState<string | null>(null);
+    const [lang, setLangState] = useState<string | null>(null);
     const [labels, setLabels] = useState<Labels | null>(null)
 
+    const setLang = (newLang: string) => {
+        localStorage.setItem("lang", newLang);
+        setLangState(newLang);
+    };
+
     useEffect(() => {
-        if (!lang) return;
+        const storedLang = localStorage.getItem("lang");
+        if (storedLang) {
+            setLangState(storedLang);
+        }
+    }, []);
+
+    useEffect(() => {
+        if (!lang) return
 
         const fetchLabels = async () => {
             try {
@@ -31,7 +43,7 @@ export const LabelsProvider = ({ children }) => {
     }, [lang]);
 
     return (
-        <LabelsContext.Provider value={{ labels, setLang  }}>
+        <LabelsContext.Provider value={{ labels, setLang }}>
             {children}
         </LabelsContext.Provider>
     )
