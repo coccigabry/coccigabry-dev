@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const NavLink = ({ link }) => {
-  const pathName = usePathname().split('/').pop();
+  const pathName = usePathname();
 
   const selected = pathName === link.url ? "bg-black text-white" : "";
 
