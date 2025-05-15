@@ -40,8 +40,11 @@ type PortfolioPage = {
   rotatingText: string;
 };
 type ContactPage = {
-  title: string;
-  desc: string;
+  message: string;
+  email: string;
+  sendBtn: string;
+  successMsg: string;
+  errorMsg: string;
 };
 
 // ------------------------- COMPONENTS TYPES -------------------------
