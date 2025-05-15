@@ -42,8 +42,11 @@
                         "rotatingText": "Inviami una email"
                     },
                     "contact": {
-                        "title": "",
-                        "desc": ""
+                        "message": "Il tuo messaggio",
+                        "email": "La tua email",
+                        "sendBtn": "Invia",
+                        "successMsg": "Messaggio inviato correttamente!",
+                        "errorMsg": "Qualcosa è andato storto, per favore riprova"
                     }
                 },
                 "components": {
@@ -175,8 +178,11 @@
                         "rotatingText": "Envíame un correo electrónico"
                     },
                     "contact": {
-                        "title": "",
-                        "desc": ""
+                        "message": "Tu mensaje",
+                        "email": "Tu correo electrónico",
+                        "sendBtn": "Enviar",
+                        "successMsg": "¡Mensaje enviado con éxito!",
+                        "errorMsg": "Algo salió mal, por favor intenta de nuevo"
                     }
                 },
                 "components": {
@@ -308,8 +314,11 @@
                         "rotatingText": "Send me an email"
                     },
                     "contact": {
-                        "title": "",
-                        "desc": ""
+                        "message": "Your message",
+                        "email": "Your email",
+                        "sendBtn": "Send",
+                        "successMsg": "Message sent successfully!",
+                        "errorMsg": "Something went wrong, please try again!"
                     }
                 },
                 "components": {
