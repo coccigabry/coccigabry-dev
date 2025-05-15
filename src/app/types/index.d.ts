@@ -88,3 +88,8 @@ type Project = {
   link: string;
   bg: string;
 };
+export type Languages = {
+  lang: string;
+  img: string;
+  alt: string;
+};
