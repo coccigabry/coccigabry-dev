@@ -1,3 +1,3 @@
-## COCCI'S 
+## COCCIGABRY PERSONAL PAGE
 
-My personal webpage, created with Next.js
+The source code of my personal webpage, created with Next.js and reacheable at https://coccigabry.github.io
