@@ -24,7 +24,7 @@ const Carousel = ({ scrollYProgress }) => {
                 key={project.title}
               >
                 <div className="flex flex-col gap-8 text-white">
-                  <h1 className="text-xl font-bold md:text-4xl lg:text-6xl xl:text-8xl text-center">
+                  <h1 className="text-3xl font-bold md:text-4xl lg:text-6xl xl:text-8xl text-center">
                     {project.title}
                   </h1>
                   <div className="relative w-80 h-56 md:w-96 md:h-64 lg:w-[500px] lg:h-[350px] ml-auto mr-auto">
