@@ -16,7 +16,10 @@ const AboutPage = () => {
   const skillsOnView = useInView(skillsRef, { margin: "-100px", once: true });
 
   const experienceRef = useRef(null);
-  const experienceOnView = useInView(experienceRef, { margin: "-100px", once: true   });
+  const experienceOnView = useInView(experienceRef, { margin: "-100px", once: true });
+
+  const jobRef = useRef(null);
+  const jobOnView = useInView(jobRef, { once: true });
 
   return (
     <motion.div
@@ -157,7 +160,7 @@ const AboutPage = () => {
             ref={experienceRef}
           >
             <motion.h1
-              initial={{ x: "-300px" }}
+              initial={{ x: "-500px" }}
               animate={experienceOnView ? { x: 0 } : {}}
               transition={{ delay: 0.2 }}
               className="font-bold text-2xl uppercase"
@@ -165,7 +168,8 @@ const AboutPage = () => {
               {aboutContent?.expTitle ?? ""}
             </motion.h1>
             {/* TIMELINE */}
-            <Timeline />
+            <div className="" ref={jobRef}></div>
+            <Timeline jobOnView={jobOnView}/>
           </div>
         </div>
         {/* SVG */}

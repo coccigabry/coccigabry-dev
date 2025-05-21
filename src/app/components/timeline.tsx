@@ -1,25 +1,21 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import { useLabels } from "../hooks/useLabels";
 
-const Timeline = () => {
+const Timeline = ({ jobOnView }) => {
 
   const labels = useLabels()
   const timelineContent = labels?.labels?.components?.timeline && { ...labels.labels.components.timeline }
-
-  const jobRef = useRef(null);
-  const jobOnView = useInView(jobRef, {once: true});
 
   return (
     <div className="">
       {timelineContent?.jobs &&
         timelineContent.jobs.map((job, idx) => {
           const lastExperience = timelineContent.jobs[timelineContent.jobs.length - 1];
-          const increasingDelay = idx * 0.2;
+          const increasingDelay = (idx + 1) * 0.4;
           return (
-            <div key={idx} className="flex justify-between h-48" ref={jobRef}>
+            <div key={idx} className="flex justify-between h-48">
               {/* LEFT */}
               <div className="w-1/3">
                 {idx % 2 == 0 && (
@@ -60,7 +56,7 @@ const Timeline = () => {
                     initial={{ scale: 0, opacity: 0 }}
                     animate={jobOnView ? { scale: 1, opacity: 1 } : {}}
                     transition={{
-                      duration: 0.4,
+                      duration: 0.3,
                       delay: increasingDelay,
                       ease: "easeOut",
                     }}
