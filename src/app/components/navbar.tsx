@@ -6,11 +6,13 @@ import { useState } from "react";
 import NavLink from "./navLink";
 import { motion } from "framer-motion";
 import { useLabels } from "../hooks/useLabels";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const Navbar = () => {
 
   const pathName = usePathname()
+  const router = useRouter()
+
 
   const labels = useLabels()
   const navbarContent = labels?.labels?.components?.navbar && { ...labels.labels.components.navbar }
@@ -39,6 +41,8 @@ const Navbar = () => {
   };
 
   const handleMenuClick = () => setOpen(!open);
+
+  const handleLinkRedirect = (link) => router.push(link)
 
   if (pathName !== "/") return (
     <div className="h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
@@ -109,8 +113,9 @@ const Navbar = () => {
                 key={link.title}
                 variants={menuListItemVariants}
                 className=""
+                onClick={() => handleLinkRedirect(link.url)}
               >
-                <Link href={link.url}>{link.title}</Link>
+                {link.title}
               </motion.div>
             ))}
           </motion.div>
